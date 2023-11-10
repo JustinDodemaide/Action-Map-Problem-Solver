@@ -24,8 +24,8 @@ func perform(_actor) -> bool:
 	is_running = true
 	var tween = _actor.create_tween()
 	tween.tween_interval(1.5)
-	_actor.states["unsure_of_enemy"] = false
-	if randi_range(0,1) == 0:
-		_actor.states["has_enemy"] = true
+	_actor.change_state("unsure_of_enemy", false)
+	#if randi_range(0,1) == 0:
+	_actor.change_state("has_enemy", true)
 	is_running = false
 	return false

@@ -19,4 +19,7 @@ func get_effects() -> Dictionary:
 	return {"has_weapon":true}
 
 func perform(_actor) -> bool:
+	is_running = true
+	_actor.change_state("has_weapon",true)
+	is_running = false
 	return false
