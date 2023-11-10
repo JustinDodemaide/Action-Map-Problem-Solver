@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cojqr7q0x664p"]
+
+[ext_resource type="Script" path="res://Agent/Agent.gd" id="1_w60pu"]
+
+[node name="Agent" type="Node"]
+script = ExtResource("1_w60pu")
+
+[node name="Update" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Update" to="." method="act"]
