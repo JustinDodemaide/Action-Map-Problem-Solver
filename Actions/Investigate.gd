@@ -4,6 +4,8 @@ func name():
 	return "Investigate"
 
 func is_valid(_actor) -> bool:
+	if _actor.last_seen_location == Vector2(-1,-1):
+		return false
 	return true
 
 func get_cost() -> int:
@@ -22,10 +24,8 @@ func get_effects() -> Dictionary:
 func perform(_actor) -> bool:
 	# Stand-in to simulate the action
 	is_running = true
-	var tween = _actor.create_tween()
-	tween.tween_interval(1.5)
-	_actor.change_state("unsure_of_enemy", false)
-	#if randi_range(0,1) == 0:
-	_actor.change_state("has_enemy", true)
+	_actor.move_to(_actor.last_seen_location)
+	await _actor.get_node("NavigationAgent2D").target_reached
+	_actor.change_state("unsure_of_enemy",false)
 	is_running = false
 	return false

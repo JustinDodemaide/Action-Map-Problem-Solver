@@ -4,6 +4,8 @@ func name():
 	return "StandAndShoot"
 
 func is_valid(_actor) -> bool:
+	if _actor.target == null:
+		return false
 	return true
 
 func get_cost() -> int:
@@ -19,4 +21,5 @@ func get_effects() -> Dictionary:
 	return {"has_enemy":false}
 
 func perform(_actor) -> bool:
+	_actor.shoot()
 	return false

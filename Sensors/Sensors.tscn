@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://desb6y0v0prq7"]
+
+[ext_resource type="Script" path="res://Sensors/Sensors.gd" id="1_r6i5t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lwseh"]
+
+[node name="Sensors" type="Node2D"]
+script = ExtResource("1_r6i5t")
+
+[node name="SightArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightArea"]
+shape = SubResource("CircleShape2D_lwseh")
+
+[node name="SightLine" type="RayCast2D" parent="."]
+collision_mask = 2
+
+[node name="CoverLine" type="RayCast2D" parent="."]
+collision_mask = 4

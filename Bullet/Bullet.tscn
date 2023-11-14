@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://w4cnssaj4si"]
+
+[ext_resource type="Script" path="res://Bullet/Bullet.gd" id="1_hw3l0"]
+[ext_resource type="Texture2D" uid="uid://ethqx0hodn8" path="res://Bullet/bullet1.png" id="2_xy5bb"]
+[ext_resource type="Texture2D" uid="uid://bhql613xclq4k" path="res://Bullet/2d_lights_and_shadows_neutral_point_light.webp" id="3_3f7po"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxsd1"]
+size = Vector2(14, 4)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_hw3l0")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_oxsd1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xy5bb")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.537255, 0.0117647, 1)
+texture = ExtResource("3_3f7po")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

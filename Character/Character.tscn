@@ -1,34 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://bce8wwatulrbc"]
+[gd_scene load_steps=5 format=3 uid="uid://bce8wwatulrbc"]
 
 [ext_resource type="Script" path="res://Character/Character.gd" id="1_kuu33"]
 [ext_resource type="PackedScene" uid="uid://cojqr7q0x664p" path="res://Agent/Agent.tscn" id="2_fjqst"]
+[ext_resource type="PackedScene" uid="uid://desb6y0v0prq7" path="res://Sensors/Sensors.tscn" id="3_ksuqa"]
+[ext_resource type="SpriteFrames" uid="uid://blagg8qbe2sug" path="res://Character/Blue.tres" id="3_ofnlr"]
 
-[node name="Character" type="Node"]
+[node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_kuu33")
+sprite_color = "Blue"
 
 [node name="Agent" parent="." instance=ExtResource("2_fjqst")]
 
-[node name="Plan" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-horizontal_alignment = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="States" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Plan" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="States" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Sensors" parent="." instance=ExtResource("3_ksuqa")]
+sight_radius = 20
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -13)
+sprite_frames = ExtResource("3_ofnlr")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
+target_desired_distance = 16.0
+avoidance_enabled = true
+
+[node name="InvestigationTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="plan_updated" from="Agent" to="." method="_on_agent_plan_updated"]
+[connection signal="character_seen" from="Sensors" to="." method="_on_sensors_character_seen"]
+[connection signal="flanked" from="Sensors" to="." method="_on_sensors_flanked"]
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
+[connection signal="timeout" from="InvestigationTimer" to="." method="_on_investigation_timer_timeout"]

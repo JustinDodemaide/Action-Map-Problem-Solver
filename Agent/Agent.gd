@@ -21,29 +21,29 @@ var current_action:Action
 
 
 func act():
-	print("\nMaking decision")
+	# print("\nMaking decision")
 	# Finish the current action
 	if current_action != null:
 		if current_action.is_running:
-			print("current action is running")
+			# print("current action is running")
 			return
 	# If the goal priority has changed, the character needs to stop
 	# and switch to the highest priority goal
-	var highest_priority_goal:Dictionary = highest_priority_goal()
-	if highest_priority_goal != current_goal:
-		print("Goal priority changed, emptying plan queue")
+	var priority_goal:Dictionary = highest_priority_goal()
+	if priority_goal != current_goal:
+		# print("Goal priority changed, emptying plan queue")
 		current_goal = highest_priority_goal()
 		plan_queue = []
 		
-	if highest_priority_goal.is_empty(): # Remove later
+	if priority_goal.is_empty(): # Remove later
 		return
 
 	if plan_queue.is_empty():
-		print("plan: ", plan_queue, ", making new plan")
+		# print("plan: ", plan_queue, ", making new plan")
 		make_plan_queue()
 	if not plan_queue.is_empty():
 		emit_signal("plan_updated", plan_queue)
-		print("plan: ", plan_queue)
+		# print("plan: ", plan_queue)
 		# there are actions that need to be performed
 		current_action = plan_queue.pop_front()
 		if current_action.is_valid(character):
