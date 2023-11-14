@@ -1,6 +1,7 @@
-class_name ActionMap
+extends ActionMap
 
-var action_map:Dictionary = {
+func _init():
+	action_map = {
 	{"has_enemy":false}: ["UnarmedAttack", "StandAndShoot","FindCoverThenShoot"],
 	{"has_weapon":true}: ["PickUpWeapon"],
 	{"chill":true}: ["Chill"],

@@ -1,7 +1,7 @@
 extends Action
 
 func name():
-	return "FindCoverThenShoot"
+	return "GetToCover"
 
 func is_valid(_actor) -> bool:
 	if _actor.states["covered"]:
@@ -18,7 +18,7 @@ func get_desireability() -> int:
 	return 10
 
 func get_preconditions() -> Dictionary:
-	return {"has_weapon":true
+	return {
 	}
 
 func get_effects() -> Dictionary:
@@ -45,16 +45,15 @@ func perform(_actor) -> bool:
 		if distance_to_threat > 120 and distance_to_threat < 192:
 			score += 1
 		options.append([score, cover_position])
+		var dot = load("res://CoverDot/CoverDot.tscn").instantiate()
+		dot.position = cover_position
+		Global.level.add_child(dot)
 	var best_score = -10000
 	var best_position:Vector2i 
 	for option in options:
 		if option.front() > best_score:
 			best_score = option.front()
 			best_position = option.back()
-#	var sprite = Sprite2D.new()
-#	sprite.texture = load("res://icon.svg")
-#	Global.level.add_child(sprite)
-#	sprite.position = best_position
 	_actor.move_to(best_position)
 	await _actor.get_node("NavigationAgent2D").target_reached
 	_actor.change_state("covered",true)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://sp4dd2rsc7ey"]
+[gd_scene load_steps=11 format=3 uid="uid://sp4dd2rsc7ey"]
 
 [ext_resource type="Texture2D" uid="uid://cnmke6xxiurhx" path="res://Level/tileset x1.png" id="1_dfigs"]
 [ext_resource type="Script" path="res://Level/Camera2D.gd" id="2_65d6i"]
 [ext_resource type="PackedScene" uid="uid://bce8wwatulrbc" path="res://Character/Character.tscn" id="2_dpw56"]
 [ext_resource type="Script" path="res://Level/Level.gd" id="2_nbk8k"]
+[ext_resource type="PackedScene" uid="uid://jvd1qa0vhyy1" path="res://ActionSelection/ActionSelectionWidget.tscn" id="4_1sqjh"]
 [ext_resource type="PackedScene" uid="uid://do21j04yyxxx5" path="res://Player/Player.tscn" id="5_dgphb"]
 [ext_resource type="PackedScene" uid="uid://e0oxn5gcv37b" path="res://Cover/Cover.tscn" id="5_rxr5g"]
 
@@ -268,6 +269,13 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 script = ExtResource("2_nbk8k")
 
+[node name="FPS" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ActionSelection" parent="." instance=ExtResource("4_1sqjh")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(430, 220)
 position_smoothing_enabled = true
@@ -310,7 +318,3 @@ position = Vector2(689, 273)
 
 [node name="Cover10" parent="Cover" instance=ExtResource("5_rxr5g")]
 position = Vector2(557, 332)
-
-[node name="FPS" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0

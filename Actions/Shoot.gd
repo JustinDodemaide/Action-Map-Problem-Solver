@@ -1,7 +1,7 @@
 extends Action
 
 func name():
-	return "StandAndShoot"
+	return "Shoot"
 
 func is_valid(_actor) -> bool:
 	if _actor.target == null:

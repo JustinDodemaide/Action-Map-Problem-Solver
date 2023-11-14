@@ -5,8 +5,8 @@ class_name Agent
 
 signal plan_updated(queue)
 
-@export var map_key:String = "Skeleton"
-@onready var action_map = AIActionMaps.action_maps[map_key]
+@export var map_key:String
+@onready var action_map
 
 var character
 
@@ -21,6 +21,7 @@ var current_action:Action
 
 
 func act():
+	action_map = AIActionMaps.action_maps[map_key]
 	# print("\nMaking decision")
 	# Finish the current action
 	if current_action != null:
@@ -88,9 +89,11 @@ func plan(current_node:ActionNode, precondition_to_satisfy:Dictionary, leaves:Ar
 		leaves.append(current_node)
 		return
 	
+	if not action_map.has(precondition_to_satisfy):
+		return
 	var actions_that_satisfy_precondition = action_map[precondition_to_satisfy]
 	if actions_that_satisfy_precondition.is_empty():
-		pass
+		return
 	for action in actions_that_satisfy_precondition:
 		var action_instance:Action = load("res://Actions/" + action + ".gd").new()
 		if not action_instance.is_valid(character):

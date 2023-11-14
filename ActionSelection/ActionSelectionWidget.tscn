@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://jvd1qa0vhyy1"]
+
+[ext_resource type="Script" path="res://ActionSelection/ActionSelectionWidget.gd" id="1_kamjs"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_right = 88.0
+offset_bottom = 26.0
+theme_override_constants/separation = 30
+alignment = 1
+script = ExtResource("1_kamjs")

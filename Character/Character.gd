@@ -8,6 +8,8 @@ var moving:bool = false
 var target
 var last_seen_location:Vector2 = Vector2(-1,-1)
 
+var action_pool:PackedStringArray = []
+
 var states = {
 	"chill":false,
 	"unsure_of_enemy":false,

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhe3mqs8u7ov"]
+
+[ext_resource type="Script" path="res://CoverDot/CoverDot.gd" id="1_et0t2"]
+[ext_resource type="Texture2D" uid="uid://c5qgwemv1frth" path="res://CoverDot/dot.png" id="1_m1w64"]
+
+[node name="CoverDot" type="Sprite2D"]
+texture = ExtResource("1_m1w64")
+script = ExtResource("1_et0t2")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
