@@ -4,8 +4,7 @@
   <img src="https://github.com/JustinDodemaide/Action-Map-Problem-Solver/assets/103222511/c6f05b16-cfd4-427e-8387-96814f71744e" />
 </p>
 
-This project is a demonstration of an AI decision making algorithm inspired by [Jeff Orkin's Goal Oriented Action Programming (GOAP)](https://www.gamedeveloper.com/design/building-the-ai-of-f-e-a-r-with-goal-oriented-action-planning)
-, made in Godot 4.0. The Action Map Problem Solver (AMPS) applies depth-first search to an adjacency list of predefined actions in order to find the plan with the most ideal opportunity cost to accomplish a goal.
+This project is a demonstration of an AI decision making algorithm inspired by [Jeff Orkin's Goal Oriented Action Programming (GOAP)](https://www.gamedeveloper.com/design/building-the-ai-of-f-e-a-r-with-goal-oriented-action-planning), made in Godot 4.0. The Action Map Problem Solver (AMPS) applies depth-first search to an adjacency list of predefined actions in order to find the plan with the most ideal opportunity cost to accomplish a goal.
 
 ## How to use the demo:
 #### [In-Browser Demo](https://jusltin.itch.io/actiontrees-demo?secret=oCp4xMRg6Vy2ZATbSwFnS7i2TrU)
