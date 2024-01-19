@@ -19,9 +19,9 @@ Underneath the NPC is their *plan* and their *states*. States are changed by the
 
 AMPS is an automated planning process, carried out by AI agents, that attempts to create a sequence of actions to achieve a goal.
 
-Every AI character has a set of states. For example, the agent in the demo has states such as "has_enemy", "has_weapon", and "covered". The demo allows the user to toggle these states manually.
+Every AI character has a set of *states*. For example, the agent in the demo has states such as "has_enemy", "has_weapon", and "covered". The demo allows the user to toggle these states manually.
 
-Every agent has a set of one or more goals. Each goal is a desired condition for a state. In the demo, the agent's highest priority goal is "has_enemy" = false, followed by "chill" = true. To achieve this desired state, the agent traverses an *action map* to find the most ideal sequence of actions, or *plan*.
+Every *agent* has a set of one or more goals. Each goal is a desired condition for a state. In the demo, the agent's highest priority goal is "has_enemy" = false, followed by "chill" = true. To achieve this desired state, the agent traverses an *action map* to find the most ideal sequence of actions, or *plan*.
 
 Actions are defined by *preconditions*, states that must have a certain condition for the action to be performed; and *effects*, states that will have their condition changed if the action is performed successfully. Actions are also able to calculate their opportunity cost, or *score*, by evaluating environmental and character conditions.
 
