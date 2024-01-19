@@ -59,8 +59,7 @@ AMPS borrows heavily from Jeff Orkin's Goal Oriented Action Planning. The bigges
 ## Potential Improvements:
 
 * Allow the goals to change priority depending on the conditions of the environmet or AI character.
-* Interupt the current action: At present, the agent must wait for the action to finish before it can it can form a new plan.
-* Checking the validity of each action before its performed is slower, but makes the system more robust.
+* Interrupt the current action: At present, the agent must wait for the action to finish before it can it can form a new plan.
 
 ## Acknowledgements:
 Tileset + character sprites: [Tech Dungeon: Roguelite by pupkin](https://trevor-pupkin.itch.io/tech-dungeon-roguelite)
