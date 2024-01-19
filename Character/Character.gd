@@ -27,7 +27,7 @@ func _ready():
 		$VBoxContainer/States.add_child(new_debug)
 		
 	$AnimatedSprite2D.sprite_frames = load("res://Character/" + sprite_color + ".tres")
-	
+
 func _on_agent_plan_updated(queue):
 	$VBoxContainer/Plan.text = "Plan:\n" + str(queue)
 
@@ -56,7 +56,7 @@ func _input(event):
 	pass
 
 func move_to(pos:Vector2):
-	print("target position: ", pos)
+	# print("target position: ", pos)
 	moving = true
 	$AnimatedSprite2D.play("move")
 	$NavigationAgent2D.set_target_position(pos)
@@ -77,7 +77,7 @@ func move(destination):
 func _on_navigation_agent_2d_target_reached():
 	moving = false
 	$AnimatedSprite2D.play("idle")
-	print("target reached")
+	# print("target reached")
 
 func _on_sensors_flanked(character):
 	#print("flanked by ", character.name)
@@ -94,7 +94,7 @@ func _on_sensors_character_seen(character):
 		change_state("has_enemy",true)
 
 func _on_investigation_timer_timeout():
-	print("investigation timer")
+	# print("investigation timer")
 	target = null
 	change_state("has_enemy",false)
 	change_state("unsure_of_enemy",true)

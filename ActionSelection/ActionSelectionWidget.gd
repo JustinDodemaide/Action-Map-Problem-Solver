@@ -15,4 +15,4 @@ func toggled(option):
 		if action.on:
 			pool.append(action.action)
 	AIActionMaps.make_action_map("Soldier",pool)
-	print(AIActionMaps.action_maps["Soldier"])
+	# print(AIActionMaps.action_maps["Soldier"])

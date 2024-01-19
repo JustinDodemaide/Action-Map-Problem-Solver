@@ -1,8 +1,6 @@
 extends Node
 class_name Agent
 
-#https://www.geeksforgeeks.org/uniform-cost-search-dijkstra-for-large-graphs/
-
 signal plan_updated(queue)
 
 @export var map_key:String
@@ -22,29 +20,24 @@ var current_action:Action
 
 func act():
 	action_map = AIActionMaps.action_maps[map_key]
-	# print("\nMaking decision")
 	# Finish the current action
 	if current_action != null:
 		if current_action.is_running:
-			# print("current action is running")
 			return
 	# If the goal priority has changed, the character needs to stop
 	# and switch to the highest priority goal
 	var priority_goal:Dictionary = highest_priority_goal()
 	if priority_goal != current_goal:
-		# print("Goal priority changed, emptying plan queue")
 		current_goal = highest_priority_goal()
 		plan_queue = []
 		
-	if priority_goal.is_empty(): # Remove later
+	if priority_goal.is_empty():
 		return
 
 	if plan_queue.is_empty():
-		# print("plan: ", plan_queue, ", making new plan")
 		make_plan_queue()
 	if not plan_queue.is_empty():
 		emit_signal("plan_updated", plan_queue)
-		# print("plan: ", plan_queue)
 		# there are actions that need to be performed
 		current_action = plan_queue.pop_front()
 		if current_action.is_valid(character):
@@ -70,7 +63,7 @@ func make_plan_queue():
 	var best_leaf:ActionNode = plan_leaves.front()
 	var best_score:float = plan_leaves.front().score
 	for leaf in plan_leaves:
-		# This is obviously going to waste one cycle bc the first has already been evaluated, but its fine
+		# This is obviously going to waste one cycle bc the first has already been evaluated
 		if leaf.score > best_score:
 			best_leaf = leaf
 			best_score = leaf.score
