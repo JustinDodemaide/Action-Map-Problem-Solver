@@ -6,7 +6,7 @@
 
 This project is a demonstration of an AI decision making algorithm inspired by [Jeff Orkin's Goal Oriented Action Programming (GOAP)](https://www.gamedeveloper.com/design/building-the-ai-of-f-e-a-r-with-goal-oriented-action-planning), made in Godot 4.0. The Action Map Problem Solver (AMPS) applies depth-first search to an adjacency list of predefined actions in order to find the plan with the most ideal opportunity cost to accomplish a goal.
 
-## How to use the demo:
+## How to Use the Demo:
 #### [In-Browser Demo](https://jusltin.itch.io/actiontrees-demo?secret=oCp4xMRg6Vy2ZATbSwFnS7i2TrU)
 
 Control the player character (the one that starts on the left) using WASD.
@@ -15,7 +15,7 @@ In the top left corner is the Action Pool. These are the actions available to th
 
 Underneath the NPC is their *plan* and their *states*. States are changed by the decision making algorithm, but can also be manually toggled to see how the NPC reacts.
 
-## How It Works:
+## How it Works:
 
 AMPS is an automated planning process, carried out by AI agents, that attempts to create a sequence of actions to achieve a goal.
 
