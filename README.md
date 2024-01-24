@@ -51,9 +51,10 @@ AMPS borrows heavily from Jeff Orkin's Goal Oriented Action Planning. The bigges
 ### Cons:
 **Performance:** 
 * Because AMPS' decision making process involves traversing a graph, its going to be much slower than other AI approaches, like the 'if' based finite state machine.
-* Because each action path must be explored before the most ideal one can be chosen, a lot of time is wasted on paths with exceptionally low scores
-* Requires a lot of function calls, increasing branch overhead
+* Because each action path must be explored before the most ideal one can be chosen, a lot of time is wasted on paths with exceptionally low scores.
+* Requires a lot of function calls, increasing branch overhead.
 * Checking the validity of each action before its performed increases robustness at expense of performance.
+* Action effects and preconditions rely on string comparison, so typos during definition could cause problems during execution.
 
 **Portability:** This system is complicated and difficult to implement, which makes converting it to other languages and engines difficult.
   
